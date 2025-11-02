@@ -2,11 +2,82 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Angeleen's Portfolio</title>
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="fonts/Poppins/poppins.css">
         <link rel="stylesheet" href="fonts/Raleway/raleway.css">
         <style>
+            @media (min-width: 768px) and (max-width: 991px) {
+                h1 { font-size: 2.5rem; }
+                h2 { font-size: 2rem; }
+                h3 { font-size: 1.5rem; }
+                h4, nav a, a, p, time, li { font-size: 1.25rem;}
+
+                nav ul {
+                    padding: 1rem 3rem;
+                }
+
+                section {
+                    height: auto;
+                    width: 100vw;
+                    padding: 3rem;
+                }
+
+                #skills-list, #contact-list {
+                    gap: 1rem;
+                }
+
+                #contact-list{
+                    grid-template-columns: 1fr 1fr;
+                    gap: 2rem;
+                }
+
+                .skill-logo, .contact-logo {
+                    width: 5rem;
+                    height: 5rem;
+                }
+
+                iframe {
+                    width: 88vw;
+                    height: 80vh;
+                }
+            }
+
+            @media (min-width: 600px) and (max-width: 767px) {
+                h1 { font-size: 2rem; }
+                h2 { font-size: 1.5rem; }
+                h3 { font-size: 1.25rem; }
+                h4, nav a, a, p, time, li { font-size: 1rem;}
+
+                nav ul {
+                    padding: 0.5rem 2rem;
+                }
+
+                section {
+                    height: auto;
+                    width: 100vw;
+                    padding: 2rem;
+                }
+
+                #skills-list, #contact-list {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 2rem;
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                }
+
+                .skill-logo, .contact-logo {
+                    width: 4rem;
+                    height: 4rem;
+                }
+
+                iframe {
+                    width: 90vw;
+                    height: 80vh;
+                }
+            }
         </style>
     </head>
 
@@ -40,9 +111,13 @@
                 <h2>Projects</h2>
                 <div class="horiztonal">
                     <picture>
-                        <source type="image/png" srcset="images/kiosk.png" width="700">
-                        
-                        <img src="images/kiosk.png" alt="Image of redesigned self kiosk page.">
+                        <source srcset="images/kiosk-l.png" media="(min-width: 992px)">
+
+                        <source srcset="images/kiosk-m.png" media="(min-width: 768px)">
+
+                        <source srcset="images/kiosk-s.png" media="(min-width: 600px)">
+
+                        <img src="images/kiosk-s.png" alt="Matcha Maiko Self-Kiosk start screen with an image of a Maiko Special Parfait.">
                     </picture>
                     <div class="vertical">
                         <p>
@@ -174,7 +249,7 @@
                             <input type="email" id="email" name="email" required>
                         </div>
 
-                         <div>
+                       
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
