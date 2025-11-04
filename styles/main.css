@@ -1,6 +1,6 @@
 :root {
     --font-heading: 'Poppins', 'Inter', 'Avenir Next', Helvetica Neue, Arial, sans-serif;
-    --font-body: 'Raleway', 'Inter', 'Gill Sans', 'Open Sans', Verdana, sans-serif;
+    --font-body: 'General Sans', 'Inter', 'Gill Sans', 'Open Sans', Verdana, sans-serif;
     --seashell: #f8f7ed;
     --black: #121113;
     --brown: #1D120B;
@@ -200,7 +200,6 @@ picture {
         grid-template-columns: 1fr 1fr 1fr;
         grid-auto-rows: minmax(min-content, max-content);
         gap: 1.5rem;
-        margin: 0;
         padding: 0;
 
         & .skill-item {
@@ -230,6 +229,11 @@ picture {
 
     & h2 {
         color: var(--mint);
+    }
+
+    & img {
+        width: auto;
+        max-height: 100%;
     }
 
     & .horizontal {
