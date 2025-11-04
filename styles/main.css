@@ -4,7 +4,7 @@
     --seashell: #f8f7ed;
     --black: #121113;
     --brown: #1D120B;
-    --mint: #A7C8BF;
+    --mint: #bbdccf;
 }
 
 * {
@@ -66,7 +66,16 @@ button {
     border: none;
     font-size: 1.5rem;
     font-family: var(--font-body);
+    border: 1px solid var(--brown);
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+        background-color: var(--mint);
+        color: var(--brown);
+        cursor: pointer;
+    }
 }
+
 
 header {
     position: fixed; 
@@ -151,9 +160,13 @@ section {
 }
 
 /* --- PROJECTS SECTION --- */
-.view-proj {
-    font-size: 1.5rem;
-    font: var(--font-body);
+picture {
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+        transform: translateY(-0.5rem);
+        cursor: pointer;
+    }
 }
 
 /* --- EXPERIENCE SECTION --- */
@@ -242,7 +255,12 @@ section {
 #contact { 
     & a {
         padding-top: 0.5rem;
+        text-decoration: none;
         color: var(--brown);
+        &:hover {
+            text-decoration: underline;
+            color: var(--brown);
+        }
     }
 
     & #contact-list {
@@ -311,6 +329,19 @@ section {
 
             & textarea {
                 resize: vertical;
+            }
+        }
+        
+        & #send-message {
+            background-color: var(--seashell);
+            color: var(--brown);
+            border: 1px solid var(--brown);
+            transition: transform 0.2s ease-out;
+
+            &:hover {
+                background-color: var(--brown);
+                color: var(--seashell);
+                cursor: pointer;
             }
         }
     }
