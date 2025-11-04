@@ -84,6 +84,7 @@ header {
     right: 0;
     width: auto; 
     background-color: var(--black);
+    z-index: 10;
 
     nav {
         width: 100%; 
