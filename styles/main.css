@@ -5,6 +5,12 @@
     --black: #121113;
     --brown: #1D120B;
     --mint: #bbdccf;
+    --forest: #26654C;
+
+    --primary: var(--seashell);
+    --accent: var(--forest);
+    --text: var(--brown);
+    --text-alt: var(--black);
 }
 
 * {
@@ -12,11 +18,18 @@
     font-size-adjust: from-font;
 }
 
+body.dark-mode {
+    --primary: var(--black);
+    --accent: var(--mint);
+    --text: var(--seashell);
+    --text-alt: var(--seashell);
+}
+
 body {
     margin: 0;
     font-family: var(--font-body);
-    background-color: var(--seashell);
-    color: var(--brown);
+    background-color: var(--primary);
+    color: var(--text);
 }
 
 h1, h2, h3, h4 {
@@ -31,6 +44,7 @@ h1 {
 h2 {
     font-size: 3rem;
     margin: 0.75rem 0;
+    color: var(--accent);
 }
 
 h3 {
@@ -47,7 +61,7 @@ p, a {
     font-size: 1.5rem;
 }
 
-a { color: var(--seashell); }
+a { color: var(--accent); }
 
 time {
     font-size: 1.5rem;
@@ -61,28 +75,30 @@ button {
     width: 100%;
     margin: 1rem 0;
     padding: 1rem;
-    background-color: var(--brown);
-    color: var(--seashell);
+    background-color: var(--text);
+    color: var(--primary);
     border: none;
     font-size: 1.5rem;
     font-family: var(--font-body);
-    border: 1px solid var(--brown);
+    border: 1px solid var(--text);
     transition: transform 0.2s ease-out;
 
     &:hover {
-        background-color: var(--mint);
-        color: var(--brown);
+        background-color: var(--accent);
+        color: var(--primary);
         cursor: pointer;
     }
 }
 
 header {
+    display: flex;
+    padding: 1.75rem 5rem;
     position: fixed; 
     top: 0;
     left: 0; 
     right: 0;
     width: auto; 
-    background-color: var(--black);
+    background-color: var(--primary);
     z-index: 10;
 
     nav {
@@ -95,22 +111,22 @@ header {
 
         & a {
             text-decoration: none;
-            color: var(--seashell);
+            color: var(--text);
             font-size: 1.2rem;
 
             &:hover {
                 text-decoration: underline;
-                color: var(--seashell);
+                color: var(--text-alt);
             }
 
             &:visited {
-                color: var(--mint);
+                color: var(--accent);
             }
         }
 
         & ul {
             display: flex; 
-            padding: 1.5rem 5rem;
+            padding: 0;
             margin: 0;         
             gap: 1rem; 
 
@@ -124,8 +140,52 @@ header {
         }
 
         & li:first-child a {
+            font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 1.4rem; 
+            font-size: 2rem; 
+            line-height: 0;
+
+            &:visited {
+                color: var(--text);
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+
+        }
+    }
+
+    & #mode-toggle {
+        width: auto;
+        height: auto;
+        font-size: 1.2rem;
+        margin: 0; 
+        padding: 0 0 0 1rem;
+        margin-right: auto; 
+        color: var(--accent);
+        background-color: transparent;
+        border: none;
+    }
+
+    & #mode-dialog {
+            background-color: var(--accent);
+            color: var(--primary);
+            height: fit-content;
+            width: fit-content;
+
+        & h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        & button {
+            height: auto;
+
+            &:hover {
+                background-color: var(--primary);
+                color: var(--text);
+            }
         }
     }
 }
@@ -159,8 +219,6 @@ section {
 /* --- LANDING SECTION --- */
 #landing {
     height: 100vh;
-    background-color: var(--black);
-    color: var(--seashell);
 }
 
 /* --- PROJECTS SECTION --- */
@@ -175,13 +233,6 @@ picture {
 
 /* --- EXPERIENCE SECTION --- */
 #experience {
-    background-color: var(--black);
-    color: var(--seashell);
-
-    & h2 {
-        color: var(--mint);
-    }
-
     & .horizontal {
         display: flex; 
         flex-direction: row; 
@@ -212,7 +263,7 @@ picture {
             justify-content: center;
             align-items: center; 
             padding: 1rem;
-            border: 1px solid var(--black);
+            border: 1px solid var(--text-alt);
 
             & .skill-logo {
                 width: 8rem;
@@ -222,19 +273,12 @@ picture {
     }
 
     & progress  {
-        accent-color: var(--mint);
+        accent-color: var(--accent);
     }
 }
 
 /* --- ABOUT SECTION --- */
 #about {
-    background-color: var(--black);
-    color: var(--seashell);
-
-    & h2 {
-        color: var(--mint);
-    }
-
     & img {
         width: auto;
         max-height: 100%;
@@ -266,10 +310,10 @@ picture {
     & a {
         padding-top: 0.5rem;
         text-decoration: none;
-        color: var(--brown);
+        color: var(--text);
         &:hover {
             text-decoration: underline;
-            color: var(--brown);
+            color: var(--text);
         }
     }
 
@@ -287,7 +331,7 @@ picture {
             justify-content: center;
             align-items: center; 
             padding: 1rem;
-            border: 1px solid var(--black);
+            border: 1px solid var(--text-alt);
 
             & .contact-logo {
                 width: 8rem;
@@ -297,8 +341,8 @@ picture {
     }
 
     & form {
-        border: 1px solid var(--black);
-        background-color: var(--mint);
+        border: 1px solid var(--text-alt);
+        background-color: var(--accent);
         padding: 2.5rem;
 
         & fieldset {
@@ -307,6 +351,7 @@ picture {
             margin: 0;
 
             & legend {
+                color: var(--primary);
                 font-size: 1.5rem;
                 font-weight: 700;
                 margin-bottom: 1rem;
@@ -324,16 +369,17 @@ picture {
                 font-size: 1.2rem;
                 margin-bottom: 0.5rem;
                 font-family: var(--font-heading);
+                color: var(--primary)
             }
 
             & input, textarea {
-                border: 1px solid var(--brown);
-                border-bottom: 1px solid var(--black);
+                border: 1px solid var(--primary);
+                border-bottom: 1px solid var(--primary);
                 padding: 0.75rem 0.5rem;
                 font-family: var(--font-body);
                 font-size: 1.1rem;
                 background-color: transparent; 
-                color: var(--brown);
+                color: var(--primary);
                 width: 100%
             }
 
@@ -343,14 +389,14 @@ picture {
         }
         
         & #send-message {
-            background-color: var(--seashell);
-            color: var(--brown);
-            border: 1px solid var(--brown);
+            background-color: var(--text);
+            color: var(--primary);
+            border: 1px solid var(--text);
             transition: transform 0.2s ease-out;
 
             &:hover {
-                background-color: var(--brown);
-                color: var(--seashell);
+                background-color: var(--primary);
+                color: var(--text);
                 cursor: pointer;
             }
         }
@@ -358,15 +404,15 @@ picture {
 }
 
 footer {
-    border-top: 1px solid var(--brown);
+    border-top: 1px solid var(--text);
     padding: 1rem;
     width: 100%;
-    background-color: var(--black);
+    background-color: var(--primary);
 
     & p {
         margin: 1rem 5rem;
         font-size: 1.2rem;
-        color: var(--seashell);
+        color: var(--text);
     }
 }
 

@@ -16,7 +16,7 @@
 
                 header {
                     & nav ul {
-                        padding: 2rem;
+                        padding: 2rem 2rem 2rem 1rem;
                     }
                 }
 
@@ -49,7 +49,7 @@
                         margin: 0;
                         width: 100%;
 
-                        & .contact-item .contact-logo {
+                        & ul li .contact-item .contact-logo {
                             width: 3rem;
                             height: 3rem;
                         }
@@ -64,12 +64,13 @@
                 h4, nav a, a, p, time, label, li, button { font-size: 0.75rem; }
 
                 header {
+                    padding: 0.5rem;
                     & nav {
                         & label {
                             display: block;
-                            margin: 1rem 0 0 1rem;
+                            margin: 1rem;
                             font-size: 1rem;
-                            color: var(--seashell);
+                            color: var(--text);
                         }
 
                         & #menu-toggle {
@@ -85,10 +86,10 @@
                             flex-direction: column;
                             position: absolute;
                             width: 100%;
-                            padding: 1rem;
+                            padding: 1rem 1rem 1rem 0.5rem;
                             margin: 0;
                             list-style: none;
-                            background-color: var(--mint); 
+                            background-color: var(--accent); 
 
                             & #nav-start-right {
                                 margin-left: 0;
@@ -102,11 +103,15 @@
                                 display: block;
                                 padding: 0.25rem;
                                 text-align: left;
-                                color: var(--brown);
+                                color: var(--primary);
                                 font-weight: 400;
                                 font-size: 0.75rem;
                             }
                         }
+                    }
+
+                    & #mode-toggle {
+                        padding: inherit;
                     }
                 }
 
@@ -144,7 +149,7 @@
                         margin: 0;
                         width: 100%;
 
-                        & .contact-item .contact-logo {
+                        & ul li .contact-item .contact-logo {
                             width: 3rem;
                             height: 3rem;
                         }
@@ -189,6 +194,15 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+
+            <button id="mode-toggle"> &#x2600; </button>
+
+            <dialog id="mode-dialog">
+                <h1>Set Lighting Mode</h1>
+                <button id="light-mode">Light Mode</button>
+                <button id="dark-mode">Dark Mode</button>
+                <button id="cancel-dialog">Cancel</button>
+            </dialog>
         </header>
 
         <main>
@@ -350,8 +364,7 @@
             <p>&copy; Angeleen Duong</p>
         </footer>
 
-        <script>        
-        </script>
+        <script src="scripts/main.js"></script>
 
     </body>
 </html>
