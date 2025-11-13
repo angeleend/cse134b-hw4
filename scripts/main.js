@@ -1,3 +1,4 @@
+// THEME TOGGLE
 let dialog = document.getElementById('mode-dialog');
 let toggle = document.getElementById('mode-toggle');
 let light = document.getElementById('light-mode');
@@ -35,3 +36,36 @@ dark.addEventListener('click', () => {
 });  
 
 cancel.addEventListener('click', () => dialog.close());
+
+// VIEW TRANSITION API
+const kioskImgs = document.getElementById('kiosk-images');
+const galleryView = document.querySelector('.gallery-view');
+const projectImg = galleryView.querySelector('img');
+const sources = galleryView.querySelectorAll(' source');
+
+kioskImgs.addEventListener('click', updateView);
+
+function updateView(event) {
+    event.preventDefault();
+    
+    const clickedImg = event.target.closest('img');
+
+    const newAlt = clickedImg.alt;
+    const imgName = clickedImg.src.match(/([^/]+)\.png$/)[1];
+    const newSrc = `images/${imgName.replace(/-s$/, '')}`;
+
+    const displayNewImg = () => {
+        projectImg.src = `${newSrc}-m.png`;
+        projectImg.alt = newAlt;
+
+        sources[0].srcset = `${newSrc}.png`; 
+        sources[1].srcset = `${newSrc}.png`; 
+        sources[2].srcset = `${newSrc}.png`;
+
+    if (!document.startViewTransition) {
+        displayNewImg();
+        return;
+    }
+}
+    document.startViewTransition(() => displayNewImg());
+}

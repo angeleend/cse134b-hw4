@@ -121,6 +121,10 @@
                     padding: 1rem;
                 }
 
+                #kiosk-images {
+                    display: none;
+                }
+
                 #projects .horizontal, #experience .horizontal, #about .horizontal{
                     display: block; 
                     gap: 0rem;
@@ -214,7 +218,8 @@
             <section id="projects">                
                 <h2>Projects</h2>
                 <div class="horizontal">
-                    <picture>
+                    <div>
+                    <picture class="gallery-view">
                         <source srcset="images/kiosk-s.png" media="(max-width: 600px)" width="300" height="200">
 
                         <source srcset="images/kiosk-m.png" media="(max-width: 768px)" width="400" height="300">
@@ -223,6 +228,24 @@
                         
                         <img src="images/kiosk-s.png" alt="Matcha Maiko Self-Kiosk start screen with an image of a Maiko Special Parfait.">
                     </picture>
+                    <div id="kiosk-images">
+                        <a href="#">
+                            <img alt="Matcha Maiko Self-Kiosk start screen with an image of a Maiko Special Parfait." src="images/kiosk-m.png" width="150" height="100">
+                        </a>
+
+                        <a href="#">
+                            <img alt="Matcha Maiko Self-Kiosk quiz screen that allows customers to answer a series of questions and receive a recommendation." src="images/kiosk-quiz.png" width="150" height="100">
+                        </a>
+
+                        <a href="#">
+                            <img alt="Matcha Maiko Self-Kiosk menu screen with an images of teas, like Hojicha Drink and Matcha Drink." src="images/kiosk-menu.png" width="150" height="100">
+                        </a>
+
+                        <a href="#">
+                            <img alt="Matcha Maiko Self-Kiosk item customization screen with options for selecting temperature, sweetness levels, and toppings." src="images/kiosk-item.png" width="150" height="100">
+                        </a>
+                    </div>
+                    </div>
                     <div>
                         <p>
                             Redesigned a self-service kiosk interface for a Matcha Maiko to enhance user 
