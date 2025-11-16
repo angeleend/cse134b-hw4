@@ -6,6 +6,7 @@ let dark = document.getElementById('dark-mode');
 let cancel = document.getElementById('cancel-dialog');
 let body = document.body;
 
+toggle.style.display = 'block';
 document.addEventListener('DOMContentLoaded', defaultMode);
 
 function applyMode(mode) {
@@ -47,7 +48,7 @@ kioskImgs.addEventListener('click', updateView);
 
 function updateView(event) {
     event.preventDefault();
-    
+
     const clickedImg = event.target.closest('img');
 
     const newAlt = clickedImg.alt;

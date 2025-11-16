@@ -90,6 +90,10 @@ button {
     }
 }
 
+#mode-toggle {
+        display: none;
+    }
+
 header {
     display: flex;
     padding: 1.75rem 5rem;
