@@ -21,7 +21,11 @@
             }
 
             label[for="theme-checkbox"] {
+                padding: 0 0 0 1rem;
+                margin: 1rem 0 0 1rem;
                 font-size: 1.5rem;
+                align-self: flex-start;
+                color: var(--accent);
             }
 
             body {
@@ -30,7 +34,12 @@
                 background-color: var(--primary);
                 color: var(--text);
 
-                main { 
+                & header {
+                    padding: 0;
+                    background-color: transparent;
+                }
+
+                & main { 
                     align-items: center;
                     &  h1 {
                         font-size: 3.5rem;
@@ -101,9 +110,10 @@
             Javascript is not needed to use theme toggle.
         </noscript>
 
-        <input type="checkbox" id="theme-checkbox">
-        <label for="theme-checkbox">&#x2600;</label>
-
+        <header>
+            <input type="checkbox" id="theme-checkbox">
+            <label for="theme-checkbox">&#x2600;</label>
+        </header>
         <main>
             <h1>Contact Me</h1>
             <form id="contact-form" action="https://httpbin.org/post" method="POST">
